@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import WikiContainer from "./WikiContainer";
 const WeatherContainer = () => {
 const [city, setCity] = useState({
   name: "palermo",
@@ -53,6 +53,7 @@ return (
         <p>Feels Like</p>
         <h1>4°</h1>
       </div>
+   <WikiContainer city={city.name}></WikiContainer>
     </>
   );
 };
