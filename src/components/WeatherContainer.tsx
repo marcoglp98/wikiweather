@@ -13,20 +13,20 @@ const WeatherContainer = () => {
 
   const handleCity = async () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${key}&units=metric`;
-    axios
-      .get(url)
-      .then((res) => {
-        console.log(res.data);
-        setCity({
-          ...city,
-          name: res.data.name,
-          humidity: res.data.main.humidity,
-        });
-        setIsShown(true);
-      })
-
-      .catch((error) => alert(`Enter a valid location (${error})`));
+    try {
+      const res = await axios.get(url);
+      console.log(res.data);
+      setCity({
+        ...city,
+        name: res.data.name,
+        humidity: res.data.main.humidity,
+      });
+      setIsShown(true);
+    } catch (error) {
+      alert(`Enter a valid location (${error})`);
+    }
   };
+  
 
   const handlePress = (e: any) => {
     if (e.key === "Enter") {
