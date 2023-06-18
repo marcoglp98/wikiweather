@@ -110,13 +110,13 @@ const WeatherContainer = () => {
     <div className="bg-gray-500  m-10 rounded-xl">
       <>
         <div className="text-center">
-          <h1 className="pt-6 text-bold text-3xl border-bottom bg-blue-400 rounded-lg pb-5">
-            Welcome to WeatherWiki!
+          <h1 className="pt-6 text-bold text-4xl border-bottom bg-blue-400 rounded-lg pb-5 font-serif">
+            Welcome to WikiWeather!
           </h1>
         </div>
         <form className="p-10 flex">
           <input
-            className="rounded-xl p-2 w-[40vw]"
+            className="rounded-xl p-2 w-[40vw] font-serif"
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handlePress}
             type="search"
@@ -125,7 +125,7 @@ const WeatherContainer = () => {
             id=""
           />
           <button
-            className=" ml-4 inline-block rounded-full bg-blue-300 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal"
+            className=" ml-4 inline-block rounded-full bg-blue-300 px-6 pb-2 pt-2.5 text-base font-serif"
             type="button"
             onClick={handleCity}
           >
@@ -137,31 +137,31 @@ const WeatherContainer = () => {
           <>
             <div className="p-4">
               <div className="text-center">
-                <h1 className="text-3xl text-bold bg-green-200 rounded-xl p-4">
+                <h1 className="text-3xl text-bold bg-green-200 rounded-xl p-4 font-serif">
                   {city.name}
                 </h1>
-                <img src={weatherPic} alt=""></img>
+                <img src={weatherPic} alt="image that describes the current weather condition"></img>
               </div>
-              <div className="bg-red-200 rounded-xl p-4">
+              <div className="bg-red-200 rounded-xl p-4 font-serif">
                 <div>
-                  <h1 className="text-4xl">
-                    {" "}
+                  <h1 className="text-4xl font-serif">
+                    
                     Temperature:
-                    <span className="text-bold ml-4">
+                    <span className="text-bold ml-4 font-serif">
                       {Math.round(city.temperature)}°
                     </span>
                   </h1>
                 </div>
                 <div>
-                  <h1 className="text-4xl mt-4">
+                  <h1 className="text-4xl mt-4 font-serif">
                     Wind speed:
                     <span className="text-bold ml-4">{city.speed} km/h</span>
                   </h1>
                 </div>
                 <div>
-                  <h1 className="text-4xl mt-4">
+                  <h1 className="text-4xl mt-4 font-serif">
                     Humidity:
-                    <span className="text-bold ml-4">{city.humidity}%</span>
+                    <span className="text-bold ml-4 font-serif">{city.humidity}%</span>
                   </h1>
                 </div>
               </div>

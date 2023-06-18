@@ -30,10 +30,10 @@ const WikiContainer = (props: any) => {
   return (
     <div className="bg-yellow-200 rounded-xl p-4">
       <div>
-        <h1 className="text-3xl pb-6 bold">About {props.city}</h1>
+        <h1 className="text-3xl pb-6 font-bold ">About {props.city}</h1>
         {cityContent && (
           <div
-            className="text-2xl"
+            className="text-2xl font-serif"
             dangerouslySetInnerHTML={{ __html: cityContent }}
           />
         )}
