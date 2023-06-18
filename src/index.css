@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-image: url("./resources/background.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  max-width: 600px;
+  margin: auto;
+  background-size: cover;
+}

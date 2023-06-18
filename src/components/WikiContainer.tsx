@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 const getFirstPageExtract = (jsonResponse: any) => {
-
   const pages = jsonResponse.query.pages;
   const pageIds = Object.keys(pages);
 
@@ -16,24 +15,27 @@ const WikiContainer = (props: any) => {
 
   const getCity = async () => {
     try {
-        const response = await axios.get(url);
-        const jsonContent = response.data;
-        const extract = getFirstPageExtract(jsonContent);
-        setCityContent(extract);
+      const response = await axios.get(url);
+      const jsonContent = response.data;
+      const extract = getFirstPageExtract(jsonContent);
+      setCityContent(extract);
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
-}
+  };
   useEffect(() => {
     getCity();
   }, [props]);
 
   return (
-    <div>
+    <div className="bg-yellow-200 rounded-xl p-4">
       <div>
-        <h1>About {props.city}</h1>
+        <h1 className="text-3xl pb-6 bold">About {props.city}</h1>
         {cityContent && (
-          <div dangerouslySetInnerHTML={{ __html: cityContent }} />
+          <div
+            className="text-2xl"
+            dangerouslySetInnerHTML={{ __html: cityContent }}
+          />
         )}
       </div>
     </div>

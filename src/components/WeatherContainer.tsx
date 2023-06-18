@@ -107,47 +107,72 @@ const WeatherContainer = () => {
   };
 
   return (
-    <>
-      <div>
-        <h1>Welcome to WeatherWiki!</h1>
-        <form>
+    <div className="bg-gray-500  m-10 rounded-xl">
+      <>
+        <div className="text-center">
+          <h1 className="pt-6 text-bold text-3xl border-bottom bg-blue-400 rounded-lg pb-5">
+            Welcome to WeatherWiki!
+          </h1>
+        </div>
+        <form className="p-10 flex">
           <input
+            className="rounded-xl p-2 w-[40vw]"
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handlePress}
             type="search"
             placeholder="search location"
-            name=""
+            name="search"
             id=""
           />
+          <button
+            className=" ml-4 inline-block rounded-full bg-blue-300 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal"
+            type="button"
+            onClick={handleCity}
+          >
+            Search
+          </button>
         </form>
-        <button onClick={handleCity}>Search</button>
+
         {isShown && (
           <>
-            <div>
-              <div>
-                <h1>{city.name}</h1>
+            <div className="p-4">
+              <div className="text-center">
+                <h1 className="text-3xl text-bold bg-green-200 rounded-xl p-4">
+                  {city.name}
+                </h1>
                 <img src={weatherPic} alt=""></img>
               </div>
-              <div>
-                <p>Temperature</p>
-                <h1>{Math.round(city.temperature)}</h1>
+              <div className="bg-red-200 rounded-xl p-4">
+                <div>
+                  <h1 className="text-4xl">
+                    {" "}
+                    Temperature:
+                    <span className="text-bold ml-4">
+                      {Math.round(city.temperature)}°
+                    </span>
+                  </h1>
+                </div>
+                <div>
+                  <h1 className="text-4xl mt-4">
+                    Wind speed:
+                    <span className="text-bold ml-4">{city.speed} km/h</span>
+                  </h1>
+                </div>
+                <div>
+                  <h1 className="text-4xl mt-4">
+                    Humidity:
+                    <span className="text-bold ml-4">{city.humidity}%</span>
+                  </h1>
+                </div>
               </div>
-              <div>
-                <p>Wind Speed</p>
-                <h1>{city.speed} km/h</h1>
-              </div>
-              <div>
-                <p>Humidity</p>
-                <h1>{city.humidity}%</h1>
-              </div>
-              <div>
+              <div className="pt-8">
                 <WikiContainer city={city.name}></WikiContainer>
               </div>
             </div>
           </>
         )}
-      </div>
-    </>
+      </>
+    </div>
   );
 };
 
