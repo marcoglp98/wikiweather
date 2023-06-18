@@ -19,6 +19,8 @@ const WeatherContainer = () => {
   const [city, setCity] = useState({
     conditions: "",
     name: "null",
+    temperature: 0,
+    speed: 0,
     humidity: 0,
   });
 
@@ -81,11 +83,13 @@ const WeatherContainer = () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${key}&units=metric`;
     try {
       const res = await axios.get(url);
-      console.log(city.conditions);
+      console.log(res.data);
       setCity({
         ...city,
-        conditions: res.data.weather[0].main,
         name: res.data.name,
+        conditions: res.data.weather[0].main,
+        temperature: res.data.main.temp,
+        speed: res.data.wind.speed,
         humidity: res.data.main.humidity,
       });
 
@@ -119,24 +123,26 @@ const WeatherContainer = () => {
         <button onClick={handleCity}>Search</button>
         {isShown && (
           <>
-            <h1>{city.name}</h1>
-            <img src={weatherPic} alt=""></img>
-            <h1>{city.humidity}</h1>
             <div>
-              <h1>5°</h1>
-            </div>
-            <div>
-              <p></p>
-              <h1>5km/h</h1>
-            </div>
-            <div>
-              <p>Humidity</p>
-              <h1>10%</h1>
-            </div>
-            <div>
-              <p>Feels Like</p>
-              <h1>4°</h1>
-              <WikiContainer city={city.name}></WikiContainer>
+              <div>
+                <h1>{city.name}</h1>
+                <img src={weatherPic} alt=""></img>
+              </div>
+              <div>
+                <p>Temperature</p>
+                <h1>{Math.round(city.temperature)}</h1>
+              </div>
+              <div>
+                <p>Wind Speed</p>
+                <h1>{city.speed} km/h</h1>
+              </div>
+              <div>
+                <p>Humidity</p>
+                <h1>{city.humidity}%</h1>
+              </div>
+              <div>
+                <WikiContainer city={city.name}></WikiContainer>
+              </div>
             </div>
           </>
         )}
