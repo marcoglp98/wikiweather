@@ -114,9 +114,9 @@ const WeatherContainer = () => {
             Welcome to WikiWeather!
           </h1>
         </div>
-        <form className="p-10 flex sm:w-[60vw]">
+        <form className="p-10 flex sm:w-[60vw] xl:w-[45vw]">
           <input
-            className="rounded-xl p-2   w-[70vw] font-serif"
+            className="rounded-xl p-2 w-[90vw] font-serif"
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handlePress}
             type="search"
