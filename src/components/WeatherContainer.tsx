@@ -107,16 +107,16 @@ const WeatherContainer = () => {
   };
 
   return (
-    <div className="bg-gray-500  m-10 rounded-xl">
+    <div className="bg-gray-500 lg:m-5 sm:rounded-xl ">
       <>
         <div className="text-center">
-          <h1 className="pt-6 text-bold text-4xl border-bottom bg-blue-400 rounded-lg pb-5 font-serif">
+          <h1 className="p-5 text-bold text-4xl border-bottom bg-blue-400 sm:rounded-lg  font-serif">
             Welcome to WikiWeather!
           </h1>
         </div>
-        <form className="p-10 flex">
+        <form className="p-10 flex sm:w-[60vw]">
           <input
-            className="rounded-xl p-2 w-[40vw] font-serif"
+            className="rounded-xl p-2   w-[70vw] font-serif"
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handlePress}
             type="search"
@@ -140,12 +140,14 @@ const WeatherContainer = () => {
                 <h1 className="text-3xl text-bold bg-green-200 rounded-xl p-4 font-serif">
                   {city.name}
                 </h1>
-                <img src={weatherPic} alt="image that describes the current weather condition"></img>
+                <img
+                  src={weatherPic}
+                  alt="image that describes the current weather condition"
+                ></img>
               </div>
               <div className="bg-red-200 rounded-xl p-4 font-serif">
                 <div>
                   <h1 className="text-4xl font-serif">
-                    
                     Temperature:
                     <span className="text-bold ml-4 font-serif">
                       {Math.round(city.temperature)}°
@@ -161,7 +163,9 @@ const WeatherContainer = () => {
                 <div>
                   <h1 className="text-4xl mt-4 font-serif">
                     Humidity:
-                    <span className="text-bold ml-4 font-serif">{city.humidity}%</span>
+                    <span className="text-bold ml-4 font-serif">
+                      {city.humidity}%
+                    </span>
                   </h1>
                 </div>
               </div>

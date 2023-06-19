@@ -6,7 +6,7 @@ body {
   background-image: url("./resources/background.jpg");
   background-position: center;
   background-repeat: repeat;
-  max-width: 600px;
+  max-width: 900px;
   margin: auto;
   background-size: cover;
 }
