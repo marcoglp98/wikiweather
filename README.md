@@ -1,2 +1,2 @@
 # WikiWeather
-React Weather app demo (React)
+React Weather app demo.
